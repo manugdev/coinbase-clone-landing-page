@@ -1,0 +1,233 @@
+$width-sections: 1024px;
+
+@use "components";
+
+@mixin  section-display {
+  max-width: $width-sections;
+  width: 100%;
+  padding: 3rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+  border-bottom: solid 1px #ddd;
+  .logo{
+    a{
+      img{
+        max-width: 7rem;
+      }
+    }  
+  }
+}
+.sec-home{
+  @include section-display();
+  .home-cta{
+    flex: 1;
+    .cta-text{
+      color: components.$color-main;
+    }
+    .home-title{
+      width: 80%;
+      font-weight: 600;
+    }
+    .home-description{
+      width: 70%;
+      font-weight: 600;
+      padding: 1rem 0;
+    }
+  }
+  .home-img{
+    svg{
+      width: 25rem;
+    }
+  }
+}
+
+.sec-features{
+  @include section-display();
+  flex-direction: column;
+  .intro{
+    text-align: center;
+    h3{
+      font-size: 1.8rem;
+    }
+    p{
+      font-size: 0.8rem;
+      color: #888;
+    }
+  }
+  .features{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    .text{
+      padding: 2rem 0;
+      flex: 1;
+      .feature{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .description{
+          max-width: 20rem;
+          text-align: left;
+          margin-left: 1rem;
+          .description-title{
+            font-size: 1.15rem;
+          }
+          .description-text{
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+    .image{
+      img{
+        max-width: 35rem;
+      }
+    }
+    
+  }
+}
+
+.sec-benefits{
+  border-top: 1px solid #ddd;
+  max-width: $width-sections;
+  margin: auto;
+  .intro{
+    @extend .sec-features, .intro;
+  }
+  .benefit-cards{
+    .benefit{
+      padding: 2rem;
+    }
+    .description{
+      .title{
+        font-size: 1.25rem;
+      }
+      .text{
+        font-weight: 400;
+      }
+    }
+    .cta{
+      font-size: 0.9rem;
+      font-weight: 700;
+      &::after{
+        content: ">";
+      }
+    }
+  }
+}
+
+.sec-kpis{
+  background-color: components.$color-main;
+  color: white;
+  padding: 4rem;
+  .kpi-container{
+    width: $width-sections;
+    margin: auto;
+    display: flex;
+    .kpi{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .number{
+        font-size: 4rem;
+      }
+      .desc{
+        font-size: 0.9rem;
+        color: #FFFFFFAA;
+      }
+    }
+  }
+}
+
+.sec-onboarding{
+  max-width: $width-sections;
+  margin: auto;
+  .intro{
+    @extend .sec-features, .intro;
+  }
+  .steps{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5rem;
+    .step-separator{
+      flex: 1;
+      border-top: 2px solid #ddd;
+      margin: 0 1rem;
+    }
+  }
+}
+
+.sec-footer-cta{
+  background-color: components.$color-footer;
+  padding: 5rem;
+  background-image: url("https://assets.coinbase.com/assets/earn-upsell-desktop.7ac67bac6fdea56ce4ca11961fc8f95d.jpg");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  .footer-cta{
+    width: 20%;
+    .cta-title{
+      font-size: 2rem;
+    }
+    .cta-description{
+      font-size: 1.1rem;
+    }
+  }
+}
+@media (max-width: 768px) {
+  *{
+    text-align: center;
+  }
+  .sec-home{
+    .home-cta{
+      .home-title{
+        width: 100%;
+      }
+      .home-description{
+        width: 100%;
+      }
+    }
+  }
+  .sec-kpis{
+    .kpi-container{
+      flex-direction: column;
+    }
+  }
+  .sec-onboarding{
+    .steps{
+      flex-direction: column;
+      .icon-desc{
+        .title{
+          text-align: center;
+        }
+      }
+    }
+  }
+  .sec-footer-cta{
+    background-image: none;
+    .footer-cta{
+      width: 100%;
+      
+    }
+  }
+  .sec-benefits{
+    width: 100%;
+    margin: 0 auto;
+  }
+}

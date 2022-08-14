@@ -1,0 +1,105 @@
+$color-main: #0075FF;
+$color-footer: #F4F8FE;
+@mixin btn-s-modify{
+  font-size: 0.75rem;
+  padding: 0.1rem 1rem;
+}
+@mixin btn-base{
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+.btn-main{
+  @include btn-base;
+  background-color: $color-main;
+  color: white;
+  border: solid 1px $color-main;
+  &:hover{
+    background-color: white;
+    color: $color-main;
+    border: solid 1px $color-main;
+  }
+  &-s{
+    @extend .btn-main;
+    @include btn-s-modify;
+  }
+}
+
+.btn-sec{
+  @include btn-base;
+  color: #000;
+  background-color: transparent;
+  border: none;
+  &:hover{
+    color: #888;
+    border: none;
+  }
+  &-s{
+    @extend .btn-sec;
+    @include btn-s-modify;
+  }
+}
+
+.main-menu{
+  margin-bottom: 0;
+  li{
+    list-style: none;
+    display: inline;
+    font-size: 0.9rem;
+    padding: 0 .4rem;
+    a{
+      color: #000;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.icon-sm{
+  i{
+    font-size: 1.25rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00000055;
+    color: $color-main;
+  }
+}
+
+.benefit{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  i{
+    color: $color-main;
+    font-size: 7.5rem;
+  }
+  .description{
+    .title{
+      font-size: 2rem;
+    }
+    .text{
+      color: #888;
+      font-weight: 600;
+    }
+  }
+  .cta{
+    color: $color-main;
+    font-weight: 600;
+    margin-top: 3rem;
+  }
+}
+
+.icon-desc{
+  text-align: center;
+  i{
+    padding: 0;
+    color: $color-main;
+    font-size: 10rem;
+  }
+  .title{
+    margin-top: -1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
